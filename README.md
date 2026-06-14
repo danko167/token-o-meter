@@ -10,6 +10,8 @@ It's a FastAPI backend (`backend/`) plus a React/Vite/Mantine frontend (`fronten
 There's been a lot of discussion lately about the cost of AI *while building* software - coding assistants, agentic IDEs, token-based pricing, usage limits. This project is about a different layer of that: the cost of AI
 *inside* the software you build.
 
+<img src="./docs/tom1.png" width="600" />
+
 Not every problem needs an agent. Not every problem needs an LLM. Sometimes a workflow is enough. Sometimes a few rules are enough. And sometimes an agent is absolutely the right answer. The challenge is figuring out which is which.
 
 Most discussions around AI start with: "Can an agent do this?"
@@ -18,6 +20,8 @@ This project is interested in a different question: "Should an agent do this at 
 And if not, what is the cheapest reliable alternative?
 
 The project started as "learn LangChain." It turned into something more useful: a way to make the *cost of abstraction* visible.
+
+<img src="./docs/tom3.png" width="600" />
 
 It's easy to reach for an LLM, then a tool-using LLM, then a multi-step agent, because each step feels like a small upgrade. It's much harder to see, in one place, what each step actually buys you - and what it costs in accuracy, latency, tokens, reliability, and human effort - versus just writing the rules.
 
@@ -55,6 +59,8 @@ A Level 5 run doesn't pause "because it's Level 5" or because of one hardcoded r
 
 If any of these fire, the run pauses with a `pending_approval` status and a list of *which* checks fired and *why* — shown to the reviewer as badges in the frontend, not a black-box "needs approval" flag. A human approves or
 rejects via `POST /runs/{run_id}/decision`, and the graph resumes from exactly where it left off.
+
+<img src="./docs/tom4.png" width="600" />
 
 The point isn't "always ask a human" - it's making the *trigger* for asking explicit, inspectable, and reusable across every scenario family.
 
@@ -96,3 +102,5 @@ React + Vite + Mantine UI: run/compare/history/recommendations/ human-metrics ta
 ```
 
 See [backend/README.md](backend/README.md) and [frontend/README.md](frontend/README.md) for setup, API surface, and UI details, and [backend/docs/](backend/docs/) for the runner/scenario-family architecture and the LangChain-vs-LangGraph design notes.
+
+<img src="./docs/tom5.png" width="600" />
