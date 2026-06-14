@@ -49,6 +49,8 @@ more capable fallback.
 
 Every abstraction comes with a cost. Sometimes the answer is an agent. Sometimes it's a workflow. And sometimes it's a surprisingly boring piece of code.
 
+<img src="./docs/tom6.png" width="600" />
+
 ## The Human Checkpoint Philosophy
 
 A Level 5 run doesn't pause "because it's Level 5" or because of one hardcoded rule like "billing escalations always need approval." Instead, every proposed action is run through a shared **checkpoint policy** (`backend/app/services/checkpoint_policy.py`) that asks four concrete questions:
