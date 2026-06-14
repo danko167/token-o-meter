@@ -1,0 +1,19 @@
+id: policy-refund-window
+name: Policy QA - Refund Window
+description: >
+  Answer a customer-facing question about the standard refund window using
+  the internal policy corpus.
+family: policy_qa
+
+input: |
+  A customer says their item arrived 18 days ago and it is defective. Are they
+  still inside the refund window?
+
+expected:
+  policy_id: refund-policy
+
+required_fields:
+  - answer
+
+forbidden_actions:
+  - issue_refund

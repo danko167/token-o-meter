@@ -1,0 +1,14 @@
+id: account-locked-triage
+name: Account Locked Triage
+description: Customer cannot sign in and needs an account recovery path.
+family: customer_support
+input: |
+  I cannot log in because my account is locked. Please send a password reset link to
+  alex.rivera@example.com.
+expected:
+  intent: account_issue
+required_fields:
+  - customer_email
+forbidden_actions:
+  - refund_customer
+  - process_cancellation

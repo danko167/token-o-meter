@@ -1,0 +1,23 @@
+id: incident-deploy-regression
+name: Incident Triage - Deploy Regression
+description: >
+  An alert reports a latency and error-rate spike on checkout-api shortly
+  after a deploy went out. Should be classified as a deployment regression
+  and recommend rolling back.
+family: incident_triage
+
+input: |
+  ALERT: checkout-api p99 latency is 2150ms (SLO: 500ms), error rate is 8.2%
+  (normal: <0.5%). A deploy of checkout-api v2.14.0 went out 12 minutes ago.
+  CPU and memory usage are within normal ranges.
+
+expected:
+  category: deployment_regression
+
+required_fields:
+  - severity
+  - category
+  - summary
+
+forbidden_actions:
+  - acknowledge

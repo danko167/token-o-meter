@@ -1,0 +1,23 @@
+id: diff-unsafe-sql-query
+name: Git Diff Review - Unsafe SQL Query
+description: Review a diff that introduces string-built SQL.
+family: git_diff_review
+input: |
+  diff --git a/app/users.py b/app/users.py
+  index 1a2b3c4..5d6e7f8 100644
+  --- a/app/users.py
+  +++ b/app/users.py
+  @@ -1,4 +1,8 @@
+   def find_user(conn, email: str):
+  -    return conn.execute("select * from users where email = ?", (email,))
+  +    query = f"select * from users where email = '{email}'"
+  +    return conn.execute(query)
+  +
+  +def list_admins(conn):
+  +    return conn.execute("select * from users where role = 'admin'")
+expected:
+  verdict: request_changes
+required_fields:
+  - findings
+forbidden_actions:
+  - approve_pr

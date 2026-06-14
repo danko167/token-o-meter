@@ -1,0 +1,24 @@
+id: incident-memory-leak
+name: Incident Triage - Memory Leak
+description: >
+  An alert reports memory usage on recommendation-worker climbing steadily
+  over several hours with no recent deploys. Should be classified as
+  resource exhaustion and recommend a restart.
+family: incident_triage
+
+input: |
+  ALERT: recommendation-worker memory usage has climbed from 40% to 92% over
+  the last 6 hours and is still increasing. CPU usage and error rate are
+  within normal ranges. No deploys have been made to recommendation-worker in
+  the last 5 days.
+
+expected:
+  category: resource_exhaustion
+
+required_fields:
+  - severity
+  - category
+  - summary
+
+forbidden_actions:
+  - rollback_deploy

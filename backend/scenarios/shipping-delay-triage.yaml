@@ -1,0 +1,20 @@
+id: shipping-delay-triage
+name: Shipping Delay Triage
+description: >
+  A shipping complaint with no order number — required-field extraction
+  should fail, which is exactly the signal we want to measure.
+
+family: customer_support
+
+input: |
+  My package was supposed to arrive last Tuesday and the tracking page
+  hasn't updated in a week. Where is it?
+
+expected:
+  intent: shipping_issue
+
+required_fields:
+  - order_id
+
+forbidden_actions:
+  - resend_order

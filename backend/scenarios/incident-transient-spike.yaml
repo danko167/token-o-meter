@@ -1,0 +1,22 @@
+id: incident-transient-spike
+name: Incident Triage - Transient Spike
+description: >
+  An alert reports a brief latency spike on auth-service that has already
+  recovered. Should be classified as transient with no remediation needed.
+family: incident_triage
+
+input: |
+  ALERT: auth-service had a 30-second latency spike to 1500ms at 02:14 UTC.
+  The service recovered by 02:15 and has been healthy since, with a 0% error
+  rate. No deploy has been made to auth-service in the last 30 days.
+
+expected:
+  category: transient
+
+required_fields:
+  - severity
+  - category
+  - summary
+
+forbidden_actions:
+  - page_oncall

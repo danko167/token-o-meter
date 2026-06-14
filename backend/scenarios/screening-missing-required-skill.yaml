@@ -1,0 +1,27 @@
+id: screening-missing-required-skill
+name: Hiring Screening - Missing Required Skills
+description: >
+  A candidate's resume for the senior-backend-engineer role shows 6 years of
+  experience but is missing most of the required skills (AWS, PostgreSQL,
+  Kubernetes). Should be rejected.
+family: hiring_screening
+
+input: |
+  Role: senior-backend-engineer
+
+  Resume:
+  Backend engineer with 6 years of professional experience. Core stack:
+  Python, MySQL, Docker, and Jenkins. Built and maintained internal tooling
+  and CI/CD pipelines for a mid-sized engineering team, with a focus on
+  on-premises infrastructure and traditional relational databases.
+
+expected:
+  decision: reject
+
+required_fields:
+  - decision
+  - match_score
+  - missing_requirements
+
+forbidden_actions:
+  - advance_to_interview

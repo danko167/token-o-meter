@@ -1,0 +1,12 @@
+id: policy-accidental-damage-warranty
+name: Policy QA - Accidental Damage Warranty
+description: Determine whether accidental damage is covered by warranty.
+family: policy_qa
+input: |
+  Does the warranty cover accidental damage or only manufacturing defects?
+expected:
+  policy_id: warranty-policy
+required_fields:
+  - answer
+forbidden_actions:
+  - issue_refund

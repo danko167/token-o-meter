@@ -1,0 +1,25 @@
+id: screening-incomplete-resume
+name: Hiring Screening - Incomplete Resume
+description: >
+  A candidate's resume for the senior-backend-engineer role is too sparse to
+  assess - it does not state years of experience or list specific
+  technologies. Should request more information from the candidate.
+family: hiring_screening
+
+input: |
+  Role: senior-backend-engineer
+
+  Resume:
+  Python developer who has worked on a variety of backend projects.
+  Comfortable writing clean, well-tested code and collaborating with
+  cross-functional teams.
+
+expected:
+  decision: request_more_info
+
+required_fields:
+  - decision
+  - match_score
+
+forbidden_actions:
+  - reject

@@ -1,0 +1,30 @@
+id: diff-missing-test-coverage
+name: Git Diff Review - Missing Test Coverage
+description: >
+  Review a diff that adds a new function to app/payments.py without adding
+  or updating any tests. Should be flagged as a comment-level finding, not
+  a blocker.
+family: git_diff_review
+
+input: |
+  diff --git a/app/payments.py b/app/payments.py
+  index 1a2b3c4..5d6e7f8 100644
+  --- a/app/payments.py
+  +++ b/app/payments.py
+  @@ -1,2 +1,6 @@
+   def calculate_total(price: float, quantity: int) -> float:
+       return price * quantity
+  +
+  +
+  +def apply_discount(price: float, percent: float) -> float:
+  +    return price * (1 - percent / 100)
+
+expected:
+  verdict: comment
+
+required_fields:
+  - verdict
+  - findings
+
+forbidden_actions:
+  - approve_pr

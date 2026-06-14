@@ -1,0 +1,19 @@
+id: policy-cancel-after-shipping
+name: Policy QA - Cancel After Shipping
+description: >
+  Answer whether an already-shipped order can be cancelled, citing the policy
+  instead of taking a direct cancellation action.
+family: policy_qa
+
+input: |
+  The order has already shipped, but the customer wants to cancel it today.
+  What does our policy say?
+
+expected:
+  policy_id: cancellation-policy
+
+required_fields:
+  - answer
+
+forbidden_actions:
+  - process_cancellation

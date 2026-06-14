@@ -1,0 +1,215 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.brand {
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    opacity 140ms ease;
+
+  padding: 6px;
+  margin: -6px;
+  border-radius: 6px;
+}
+
+.brand:hover {
+  transform: scale(1.03);
+}
+
+.brandIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--mantine-color-blue-6);
+  animation: brand-flask-breathe 4.8s ease-in-out infinite;
+}
+
+.brandSignal {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 0.9fr 1.25fr 1fr 0.75fr;
+  gap: 3px;
+  width: 112px;
+  height: 3px;
+  margin-top: 5px;
+}
+
+.brandSignal-modal {
+  width: 104px;
+  margin-top: 0;
+}
+
+.brandSignal span {
+  display: block;
+  border-radius: 999px;
+  opacity: 0.82;
+  animation: brand-signal-flow 3.6s ease-in-out infinite;
+}
+
+.brandSignal span:nth-child(1) {
+  background: var(--mantine-color-gray-5);
+  animation-delay: 0ms;
+}
+
+.brandSignal span:nth-child(2) {
+  background: var(--mantine-color-blue-6);
+  animation-delay: 120ms;
+}
+
+.brandSignal span:nth-child(3) {
+  background: var(--mantine-color-violet-6);
+  animation-delay: 240ms;
+}
+
+.brandSignal span:nth-child(4) {
+  background: var(--mantine-color-grape-6);
+  animation-delay: 360ms;
+}
+
+.brandSignal span:nth-child(5) {
+  background: var(--mantine-color-orange-6);
+  animation-delay: 480ms;
+}
+
+.brandSignal span:nth-child(6) {
+  background: var(--mantine-color-red-6);
+  animation-delay: 600ms;
+}
+
+.demoProgressSignal {
+  background: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+}
+
+.demoProgressSignal :where(.mantine-Progress-section) {
+  background: linear-gradient(
+    90deg,
+    var(--mantine-color-gray-5) 0%,
+    var(--mantine-color-blue-6) 20%,
+    var(--mantine-color-violet-6) 40%,
+    var(--mantine-color-grape-6) 60%,
+    var(--mantine-color-orange-6) 80%,
+    var(--mantine-color-red-6) 100%
+  );
+}
+
+.tokenMeterIcon {
+  display: inline-grid;
+  grid-template-columns: repeat(6, 2px);
+  align-items: end;
+  gap: 2px;
+  width: 22px;
+  height: 16px;
+}
+
+.tokenMeterIcon-lg {
+  grid-template-columns: repeat(6, 3px);
+  gap: 3px;
+  width: 34px;
+  height: 24px;
+  padding: 4px;
+  /* border: 1px solid var(--mantine-color-blue-2); */
+  border: none;
+  border-radius: 6px;
+  background: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+}
+
+.tokenMeterIcon span {
+  display: block;
+  width: 100%;
+  min-height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: token-meter-pulse 1.2s ease-in-out infinite;
+}
+
+.tokenMeterIcon span:nth-child(1) {
+  color: var(--mantine-color-gray-6);
+  height: 35%;
+  animation-delay: 0ms;
+}
+
+.tokenMeterIcon span:nth-child(2) {
+  color: var(--mantine-color-blue-6);
+  height: 65%;
+  animation-delay: 120ms;
+}
+
+.tokenMeterIcon span:nth-child(3) {
+  color: var(--mantine-color-violet-6);
+  height: 45%;
+  animation-delay: 240ms;
+}
+
+.tokenMeterIcon span:nth-child(4) {
+  color: var(--mantine-color-grape-6);
+  height: 80%;
+  animation-delay: 360ms;
+}
+
+.tokenMeterIcon span:nth-child(5) {
+  color: var(--mantine-color-orange-6);
+  height: 55%;
+  animation-delay: 480ms;
+}
+
+.tokenMeterIcon span:nth-child(6) {
+  color: var(--mantine-color-red-6);
+  height: 70%;
+  animation-delay: 600ms;
+}
+
+@keyframes token-meter-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scaleY(0.72);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes brand-flask-breathe {
+  0%,
+  100% {
+    color: var(--mantine-color-blue-6);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+
+  45% {
+    color: var(--mantine-color-violet-6);
+    filter: drop-shadow(0 0 8px light-dark(rgba(34, 139, 230, 0.18), rgba(116, 143, 252, 0.24)));
+  }
+}
+
+@keyframes brand-signal-flow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scaleX(0.82);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brandIcon,
+  .brandSignal span,
+  .tokenMeterIcon span {
+    animation: none;
+    opacity: 0.85;
+    transform: none;
+  }
+}

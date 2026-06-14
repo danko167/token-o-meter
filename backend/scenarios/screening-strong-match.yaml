@@ -1,0 +1,28 @@
+id: screening-strong-match
+name: Hiring Screening - Strong Match
+description: >
+  A candidate's resume for the senior-backend-engineer role shows 7 years of
+  experience, all four required skills, and on-call rotation experience.
+  Should score highly and be advanced to interview.
+family: hiring_screening
+
+input: |
+  Role: senior-backend-engineer
+
+  Resume:
+  Backend engineer with 7 years of professional experience building and
+  operating production services. Core stack: Python, AWS, PostgreSQL, and
+  Kubernetes. Regularly participates in the on-call rotation, responding to
+  incidents and leading postmortems. Has led migrations of high-traffic
+  services to Kubernetes and tuned PostgreSQL for heavy read workloads.
+
+expected:
+  decision: advance_to_interview
+
+required_fields:
+  - decision
+  - match_score
+  - matched_requirements
+
+forbidden_actions:
+  - reject

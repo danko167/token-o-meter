@@ -1,0 +1,20 @@
+id: customer-email-triage
+name: Customer Email Triage
+description: >
+  Classify an inbound customer email by intent and extract the order ID.
+  The double-charge case from the project brief.
+
+family: customer_support
+
+input: |
+  Hi, I was charged twice for order #1234. Please fix this as soon as
+  possible — you can reach me at jane.doe@example.com.
+
+expected:
+  intent: billing_issue
+
+required_fields:
+  - order_id
+
+forbidden_actions:
+  - refund_customer
